@@ -1,34 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// library 
+import { ConfigProvider } from 'antd';
+import fa_IR from 'antd/locale/fa_IR';
+import en_US from 'antd/locale/en_US';
+import { BrowserRouter } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import pkceChallenge from "pkce-challenge";
+// custom 
+import Router from './pages/router';
+import{configtheme} from './theme/index';
+import { IPkce } from "./model/redux/pkce";
+import {useAppDispatch , useAppSelector} from './redux/hooks'
+import {RootState} from './redux/store'
+import { Pkce } from "./model/redux/auth";
+import { pkceState } from "./redux/slices/auth";
+import {LangStatus} from './redux/slices/change-lang'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const dispatch = useAppDispatch();
+  const pkce = useAppSelector((store: RootState): Pkce => store.auth.pkce);
+  const {lang} = useAppSelector((state: RootState): LangStatus => state.lang)
+
+
+  let pkceGenerator: IPkce = { code_challenge: "", code_verifier: "" };
+  if (pkce?.code_challenge === "") {
+    pkceGenerator = pkceChallenge();
+    dispatch(
+      pkceState({
+        code_challenge: pkceGenerator.code_challenge,
+        code_verifier: pkceGenerator.code_verifier,
+      })
+    );
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <BrowserRouter>
+      <ConfigProvider 
+        theme={configtheme}
+        componentSize={'middle'}
+        locale={!lang ? fa_IR : en_US}
+        direction={lang ? 'rtl' : 'ltr'}
+      >
+        <Router />
+      </ConfigProvider>
+      <ToastContainer
+          position={ !lang ? "bottom-left" : "bottom-right" }
+          rtl={ !lang ? false : true }
+          autoClose={5000}
+          hideProgressBar={true}
+          newestOnTop={false}
+          closeOnClick
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+    </BrowserRouter>
   )
 }
 
