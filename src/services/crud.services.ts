@@ -1,6 +1,6 @@
 import { ApiPayload } from "@/model/service/api-payload.model";
 import { ApiResponse } from "@/model/service/api-response.model";
-import { BaseService } from "./_base-service";
+import { BaseService } from "./base.service";
 
 export abstract class CrudTmForumService<
   EntityModel,
