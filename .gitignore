@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+.idea
+/src/translations/main-en.json
+/src/translations/main-fa.json
+/.eslintcache
+.eslintcache
+/cypress/screenshots/**
