@@ -4,8 +4,8 @@ const fs = require('fs');
 const glob = require('glob');
 const mkdirpSync = require('mkdirp');
 
-const MESSAGES_PATTERN = { en: "./src/**/en.json", fa: "./src/**/fa.json" };
-const LANG_DIR = "./src/translations/";
+const MESSAGES_PATTERN = { en: './src/**/en.json', fa: './src/**/fa.json' };
+const LANG_DIR = './src/translations/';
 
 Object.keys(MESSAGES_PATTERN).map((key, index) => {
   // @ts-ignore
@@ -14,8 +14,8 @@ Object.keys(MESSAGES_PATTERN).map((key, index) => {
     // @ts-ignore
 
     .sync(MESSAGES_PATTERN[key], { ignore: [] })
-    .map((fileName) => fs.readFileSync(fileName, "utf8"))
-    .map((file) => JSON.parse(file))
+    .map(fileName => fs.readFileSync(fileName, 'utf8'))
+    .map(file => JSON.parse(file))
     .reduce((collection, descriptors) => {
       for (const key in descriptors) {
         if (descriptors.hasOwnProperty(key)) {
@@ -30,7 +30,8 @@ Object.keys(MESSAGES_PATTERN).map((key, index) => {
 
   mkdirpSync.sync(LANG_DIR);
   fs.writeFileSync(
-    LANG_DIR + "main-" + key + ".json",
-    JSON.stringify(defaultMessages, null, 2)
+    LANG_DIR + 'main-' + key + '.json',
+    JSON.stringify(defaultMessages, null, 2),
   );
+  console.info('<---- Translation file merged --->');
 });

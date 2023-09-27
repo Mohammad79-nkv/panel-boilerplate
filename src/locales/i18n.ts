@@ -5,7 +5,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 
 import en from '../translations/main-en.json';
 import fa from '../translations/main-fa.json';
-import { ConvertedToObjectType } from './types';
+import { ConvertedToObjectType } from './type';
 
 const translationsJson = {
   fa: {
@@ -32,9 +32,15 @@ const convertLanguageJsonToObject = (obj: any, dict: {}, current?: string) => {
   Object.keys(obj).forEach(key => {
     const currentLookupKey = current ? `${current}.${key}` : key;
     if (typeof obj[key] === 'object') {
+      // @ts-ignore
+
       dict[key] = {};
+      // @ts-ignore
+
       convertLanguageJsonToObject(obj[key], dict[key], currentLookupKey);
     } else {
+      // @ts-ignore
+
       dict[key] = currentLookupKey;
     }
   });
@@ -54,15 +60,15 @@ export const i18n = i18next
       resources: translationsJson,
       lng: 'fa',
       fallbackLng: 'fa',
-      debug:
-        process.env.NODE_ENV !== 'production' &&
-        process.env.NODE_ENV !== 'test',
+      // debug:
+      //   process.env.NODE_ENV !== 'production' &&
+      //   process.env.NODE_ENV !== 'test',
 
       interpolation: {
         escapeValue: false, // not needed for react as it escapes by default
       },
     },
     () => {
-      convertLanguageJsonToObject(fa, translations);
+      // convertLanguageJsonToObject(fa, translations);
     },
   );
