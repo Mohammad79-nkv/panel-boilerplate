@@ -1,13 +1,17 @@
 {
-    "posListPage.title": "فهرست پوزها",
-    "posListPage.name": "نام",
-    "posListPage.psp": "پی.اس.پی",
-    "posListPage.office": "دفتر",
-    "posListPage.serialNumber": "شماره سریال",
-    "posListPage.terminalId": "شناسه ترمینال",
-    "posListPage.created": "تاریخ ایجاد",
-    "posListPage.registerDate": "تاریخ ثبت",
-    "posListPage.editDrawerTitle": "ویرایش پوز",
-    "posListPage.addDrawerTitle": "افزودن پوز",
-    "posListPage.installerName": "نام نصاب"
-  }
+  "posListPage.title": "فهرست پوزها",
+  "posListPage.name": "نام",
+  "posListPage.psp": "پی.اس.پی",
+  "posListPage.office": "دفتر",
+  "posListPage.serialNumber": "شماره سریال",
+  "posListPage.terminalId": "شناسه ترمینال",
+  "posListPage.created": "تاریخ ایجاد",
+  "posListPage.registerDate": "تاریخ ثبت",
+  "posListPage.editDrawerTitle": "ویرایش پوز",
+  "posListPage.addDrawerTitle": "افزودن پوز",
+  "posListPage.installerName": "نام نصاب",
+  "posListPage.instaallerName": "نام نصاب",
+  "dwadawdawda": "awdawdawdawdawdawdawdawd"
+
+
+}

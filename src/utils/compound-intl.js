@@ -1,8 +1,13 @@
 // @ts-ignore
 
-const fs = require('fs');
-const glob = require('glob');
-const mkdirpSync = require('mkdirp');
+// const fs = require('fs');
+// const glob = require('glob');
+// const mkdirpSync = require('mkdirp');
+
+import fs from 'fs';
+import * as glob from 'glob';
+import * as mkdirpSync from 'mkdirp'
+
 
 const MESSAGES_PATTERN = { en: './src/**/en.json', fa: './src/**/fa.json' };
 const LANG_DIR = './src/translations/';

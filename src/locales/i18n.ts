@@ -58,7 +58,7 @@ export const i18n = i18next
     {
       keySeparator: false,
       resources: translationsJson,
-      lng: 'fa',
+      lng:localStorage.getItem('i18nextLng') || 'fa',
       fallbackLng: 'fa',
       // debug:
       //   process.env.NODE_ENV !== 'production' &&

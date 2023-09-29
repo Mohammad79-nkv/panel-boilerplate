@@ -8,7 +8,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
 //css 
 import './index.css';
-import "./config/locales/i18n";
+import "./locales/i18n.ts";
 import "react-toastify/dist/ReactToastify.css";
 //custome
 import { ErrorBoundary } from './components/index';
