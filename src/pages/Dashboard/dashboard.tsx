@@ -2,39 +2,47 @@ import { useTranslation } from 'react-i18next';
 import { useQuery } from '@tanstack/react-query';
 // import {CustomerService} from '@/services/customer/customer-service'
 import { useState, useEffect } from 'react';
+import { Table } from 'antd';
+import messages from './messages';
 
 // const customerService = new CustomerService();
 
 function Dashboard() {
   const { t } = useTranslation();
-  const [usersList, setUsersList] = useState<string>([]);
 
-  useEffect(() => {
-    setUsersList(555);
-  });
+  const dataSource = [
+    {
+      key: '1',
+      name: 'Mike',
+      age: 32,
+      address: '10 Downing Street',
+    },
+    {
+      key: '2',
+      name: 'John',
+      age: 42,
+      address: '10 Downing Street',
+    },
+  ];
 
-  // const query = useQuery(['usersList'], async () => await customerService.getListWithOutToken());
+  const columns = [
+    {
+      title: t(messages.title),
+      dataIndex: 'name',
+      key: 'name',
+    },
+    {
+      title: 'Age',
+      dataIndex: 'age',
+      key: 'age',
+    },
+    {
+      title: 'Address',
+      dataIndex: 'address',
+      key: 'address',
+    },
+  ];
 
-  //   useEffect(() => {
-  //         console.log('usersList' , usersList , query)
-  //         if(query?.data?.data?.length !== 0){
-  //             setUsersList(query?.data?.data!)
-  //         }
-  //   }, [query])
-
-  //   if(query.isLoading) {
-  //     return <>
-  //     ...loading</>
-  //   }
-  return (
-    <>
-      dashboard
-      <div>{t('app_title')}</div>
-      {usersList?.length !== 0 &&
-        usersList?.map((item: any) => {
-          return <>{item.name}</>;
-        })}
-    </>
-  );
+  return <Table dataSource={dataSource} columns={columns} />;
 }
 export default Dashboard;

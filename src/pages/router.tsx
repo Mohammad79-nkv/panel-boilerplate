@@ -3,9 +3,10 @@ import { AnimatePresence } from 'framer-motion';
 import MainLayout from './../components/layout/index';
 import { Route, Routes ,  useLocation} from "react-router-dom";
 import {APP_ROUTES} from './../enum/app-route.enum'
+import Dashboard from './Dashboard/dashboard';
 
 // useLocation
-const Dashboard = React.lazy(() => import("./Dashboard/dashboard"));
+// const Dashboard = React.lazy(() => import("./Dashboard/dashboard"));
 const Login = React.lazy(() => import("./Auth/login"));
 const TestPage = React.lazy(() => import("./TestPage/testPage"));
 const NotfoundPage = React.lazy(() => import('./NotFounPage/notfoundPage'));
