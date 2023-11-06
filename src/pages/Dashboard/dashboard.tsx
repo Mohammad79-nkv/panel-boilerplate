@@ -1,10 +1,16 @@
 import { useTranslation } from 'react-i18next';
 import { Table } from 'antd';
 import messages from './messages';
+import useTableColumns from './TableColumns';
+import { useState } from 'react';
 
 // const customerService = new CustomerService();
 
 function Dashboard() {
+  const [args, setArgs] = useState<any>({
+    page: 0,
+    size: 10,
+  });
   const { t } = useTranslation();
 
   const dataSource = [
@@ -22,23 +28,7 @@ function Dashboard() {
     },
   ];
 
-  const columns = [
-    {
-      title: t(messages.title),
-      dataIndex: 'name',
-      key: 'name',
-    },
-    {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
-    },
-    {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
-    },
-  ];
+  const columns = useTableColumns({ args, setArgs });
 
   return <Table dataSource={dataSource} columns={columns} />;
 }
