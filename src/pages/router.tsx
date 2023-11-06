@@ -21,7 +21,6 @@ function Router() {
   return (
     <>
       <AnimatePresence initial={true} mode={"wait"}>
-      {/* location={location} key={location.pathname} */} 
         <Routes >
           <Route path={'*'} element={<NotfoundPage/>}/>
           <Route element={<MainLayout />}>

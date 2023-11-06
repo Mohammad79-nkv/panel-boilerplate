@@ -1,7 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { useQuery } from '@tanstack/react-query';
-// import {CustomerService} from '@/services/customer/customer-service'
-import { useState, useEffect } from 'react';
 import { Table } from 'antd';
 import messages from './messages';
 
