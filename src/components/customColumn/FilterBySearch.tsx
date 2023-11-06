@@ -3,9 +3,9 @@ import { FilterSearchContainer } from './styles';
 import { Button, Input, message } from 'antd';
 import messages from './messages';
 import { useTranslation } from 'react-i18next';
-import { toEnglishNumbers } from '@utils/utils';
-import { FilterBySearchProps } from './types';
-import WhiteSpace from '@components/WhiteSpace';
+import { FilterBySearchProps } from './type';
+import WhiteSpace from '../WhiteSpace';
+import { toEnglishNumbers } from '@/utils/utils';
 
 const FilterBySearch = (props: FilterBySearchProps) => {
   const [inputValue, setInputValue] = useState<string | undefined>(

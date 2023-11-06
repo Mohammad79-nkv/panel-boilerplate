@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { FilterDatePickerContainer } from './styles';
-import JalaliDatePicker from '../JalaliDatePicker';
+// import JalaliDatePicker from '../JalaliDatePicker';
 import messages from './messages';
 import { Button } from 'antd';
 import { Moment } from 'moment';
 import { useTranslation } from 'react-i18next';
-import { FilterByDateProps } from './types';
-import WhiteSpace from '@components/WhiteSpace';
+import { FilterByDateProps } from './type';
+import WhiteSpace from '../WhiteSpace';
+// import WhiteSpace from '@components/WhiteSpace';
 
 const FilterByDate = (props: FilterByDateProps) => {
   const { t } = useTranslation();
@@ -16,7 +17,7 @@ const FilterByDate = (props: FilterByDateProps) => {
 
   return (
     <FilterDatePickerContainer>
-      <JalaliDatePicker
+      {/* <JalaliDatePicker
         disabled={false}
         fieldValue={fromDate}
         onChange={value => {
@@ -24,7 +25,7 @@ const FilterByDate = (props: FilterByDateProps) => {
           setFromDate(value);
         }}
         placeholder={t(messages.fromDate)}
-      />
+      /> */}
       <WhiteSpace size={'sm'} />
       <JalaliDatePicker
         disabled={false}

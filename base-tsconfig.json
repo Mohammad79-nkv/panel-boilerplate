@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@app/*": ["./app/*"],
+      "@components/*": ["./app/components/*"],
+      "@containers/*": ["./app/containers/*"],
+      "@utils/*": ["./utils/*"],
+      "@enums": ["./enums"],
+      "@endpoints": ["./endpoints"],
+      "@store/*": ["./store/*"],
+      "@styles/*": ["./styles/*"]
+    }
+  }
+}

@@ -3,8 +3,8 @@ import { FilterSearchContainer } from './styles';
 import { Button, Select } from 'antd';
 import messages from './messages';
 import { useTranslation } from 'react-i18next';
-import { FilterByDropDownProps } from './types';
-import WhiteSpace from '@components/WhiteSpace';
+import { FilterByDropDownProps } from './type';
+import WhiteSpace from '../WhiteSpace';
 
 const { Option } = Select;
 const FilterByDropDown = (props: FilterByDropDownProps) => {
