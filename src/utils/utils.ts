@@ -46,6 +46,14 @@ export function clearSiteCache(): Promise<void> {
   }
 }
 
+export function toEnglishNumbers(str) {
+  if (!str) return null;
+  return str.toString().replace(/[۰-۹]/g, chr => {
+    const persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+    return persian.indexOf(chr);
+  });
+}
+
 export function clearLocalStorage(): void {
   return localStorage.clear();
 }
